@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: black;
+    background-color: #332D56;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@ body {
     color: #fff;
 }
 .container {
-    background: rgba(255, 255, 255, 0.1);
+    background: #4E6688;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -31,7 +31,7 @@ button {
     padding: 0.8rem 1rem;
     border-radius: 8px;
     border: none;
-    background: #ff6b6b;
+    background: #B8CFCE;
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
@@ -40,6 +40,7 @@ button {
     padding-top: 13px;
     display: flex;
     gap: 5px;
+    margin-bottom: 20px;
 }
 button:hover {
     background: #ff4757;
@@ -81,4 +82,16 @@ svg {
 #mains {
     width: 100%;
     display: flex;
+}
+
+#main {
+    display: flex;
+    gap: 10px; /* Space between input and button */
+}
+
+#main input {
+    flex: 1; /* Input takes up remaining space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
