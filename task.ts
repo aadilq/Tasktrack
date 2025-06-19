@@ -9,6 +9,14 @@ const taskList = document.getElementById('task-list') as HTMLElement
 
 let task: Task[] = [];
 
+//Check if there is any task data in the localstorage
+const localStoragedata = localStorage.getItem("task array")
+
+if(localStoragedata !== null){
+    const ogdata: Task[] = JSON.parse(localStoragedata);
+    task = ogdata;
+    maketodo();
+}
 
 button.addEventListener("click", function(){
     const query = inputs.value
@@ -25,15 +33,17 @@ button.addEventListener("click", function(){
         text: query
     }
 
-    task.push(taskObj)
+    task.push(taskObj);
+    localStorage.setItem("task array", JSON.stringify(task));
+    maketodo();
 
 
-})
+});
 
-function maketodo(){
+function maketodo(): void{
     taskList.innerHTML = "";
 
-    for(let i = 0; i <= task.length; i++){
+    for(let i = 0; i < task.length; i++){
         const {id, text} = task[i];
         const element = document.createElement('div');
         element.innerHTML = `
@@ -43,7 +53,7 @@ function maketodo(){
             </span>
         `
          // Handle the delete button click event
-         const deleteButton = document.querySelector('.delete')!;
+         const deleteButton = element.querySelector('.delete')!;
          deleteButton.addEventListener("click", function () {
             // Remove the task from the array based on its ID
             const filteredarray = task.filter((taskobj: Task) => taskobj.id !== id);
